@@ -1,0 +1,11 @@
+target
+*.versionsBackup
+*.JDBC
+*.swp
+*.iml
+*.ipr
+*.iws
+*.pyc
+*.db
+*.p12
+.idea/

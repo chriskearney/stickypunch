@@ -1,0 +1,42 @@
+#
+# General Configuration
+#
+logs_dir = ./logs
+stickypunch.apnscert=/home/userhomedir/stickypunch/pushpackage.raw/cert.p12
+stickypunch.apnscertpassword=
+#
+# PushPackage Creation
+#
+stickypunch.pushpackagefiles=/home/userhomedir/stickypunch/pushpackage.raw/
+stickypunch.signercert=/home/userhomedir/stickypunch/pushpackage.raw/cert.p12
+stickypunch.signercertpassword=
+stickypunch.signercertname=
+stickypunch.websiteName=StickyPunch
+stickypunch.websitePushID=web.com.yourapp
+stickypunch.allowedDomains=https://soemthinggoeshere.com
+stickypunch.urlFormatString=https://somethingoeshere.com/notificationreceived
+stickypunch.webServiceUrl=https://somethinggoeshere.com/push
+#
+# Logging
+#
+log4j.rootLogger = INFO, ROLLINGFILE
+log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
+log4j.appender.ROLLINGFILE.Threshold=TRACE
+log4j.appender.ROLLINGFILE.File=${logs_dir}/stickypunch.log
+log4j.appender.ROLLINGFILE.MaxFileSize=128MB
+log4j.appender.ROLLINGFILE.MaxBackupIndex=10
+log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.ROLLINGFILE.layout.ConversionPattern=%-5p %d [%t] %c: %m%n
+#
+# HTTP Server configuration
+# 
+stickypunch.http.listen.addr=0.0.0.0
+stickypunch.http.listen.port=8204
+stickypunch.http.numWorkers=10
+stickypunch.http.request.log.filename=${logs_dir}/stickypunch-yyyy_mm_dd.request.log
+# Set this to false if you do not wish to verify the "ApplePushNotifcations" HTTP header value on API calls.
+stickypunch.http.authenticate.devicetokens=true
+#
+# Database Configuration
+#
+stickypunch.sqlite.database.filename=/home/userhomedir/stickypunch/stickypunch_sqlite.db

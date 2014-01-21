@@ -1,0 +1,14 @@
+127.0.0.1 -  -  [20/Jan/2014:05:10:07 +0000] "POST /push/v1/log HTTP/1.1" 200 0 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 52 52
+127.0.0.1 -  -  [20/Jan/2014:05:48:04 +0000] "POST /push/v1/pushPackages/websiteId HTTP/1.1" 500 1303 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 78 78
+127.0.0.1 -  -  [20/Jan/2014:05:57:23 +0000] "POST /push/v1/pushPackages/websiteId HTTP/1.1" 200 104926 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 289 289
+127.0.0.1 -  -  [20/Jan/2014:05:57:50 +0000] "POST /push/v1/pushPackages/websiteId HTTP/1.1" 200 104924 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 234 234
+127.0.0.1 -  -  [20/Jan/2014:05:57:50 +0000] "POST /push/v1/devices/1E7259FE6498002E9F9A4B02C5CC746DD8D78908D9EB6F0399F08E0CEAFE77E4/registrations/web.com.purplestickypunch.demo HTTP/1.1" 200 0 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 72 72
+127.0.0.1 -  -  [20/Jan/2014:05:59:48 +0000] "POST /push/v1/pushPackages/websiteId HTTP/1.1" 200 104926 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 367 367
+127.0.0.1 -  -  [20/Jan/2014:05:59:48 +0000] "POST /push/v1/devices/1E7259FE6498002E9F9A4B02C5CC746DD8D78908D9EB6F0399F08E0CEAFE77E4/registrations/web.com.purplestickypunch.demo HTTP/1.1" 403 1392 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 8 8
+127.0.0.1 -  -  [20/Jan/2014:06:01:36 +0000] "POST /push/v1/log HTTP/1.1" 200 0 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 108 108
+127.0.0.1 -  -  [20/Jan/2014:06:03:13 +0000] "POST /push/v1/log HTTP/1.1" 200 0 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 58 58
+127.0.0.1 -  -  [20/Jan/2014:06:34:17 +0000] "POST /push/v1/log HTTP/1.1" 200 0 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 37 37
+127.0.0.1 -  -  [20/Jan/2014:06:34:33 +0000] "POST /push/v1/log HTTP/1.1" 200 0 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 37 37
+127.0.0.1 -  -  [20/Jan/2014:06:35:37 +0000] "POST /push/v1/log HTTP/1.1" 200 0 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 35 35
+127.0.0.1 -  -  [20/Jan/2014:06:36:43 +0000] "POST /push/v1/log HTTP/1.1" 200 0 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 36 36
+127.0.0.1 -  -  [20/Jan/2014:06:38:03 +0000] "POST /push/v1/log HTTP/1.1" 200 0 "-" "Apache-HttpClient/4.3.1 (java 1.5)" 44 44
