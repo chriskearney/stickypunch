@@ -22,10 +22,6 @@
       <artifactId>jetty-server</artifactId>
     </dependency>
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-    </dependency>
-    <dependency>
       <groupId>com.philcollins.stickypunch</groupId>
       <artifactId>stickypunch-apnspush</artifactId>
       <version>0.1.0-SNAPSHOT</version>
