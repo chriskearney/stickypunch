@@ -4,11 +4,15 @@ import com.google.common.base.Optional;
 import com.notnoop.apns.ApnsService;
 import com.philcollins.stickypunch.api.model.WebPushStore;
 import com.philcollins.stickypunch.api.model.WebPushUser;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class ApnsPushManager {
     final ApnsService apnsService;
     final ApnsConfiguration apnsConfiguration;
     final WebPushStore webPushStore;
+
+    private static final Logger log = LogManager.getLogger(ApnsPushManager.class);
 
     public ApnsPushManager(ApnsService apnsService, ApnsConfiguration apnsConfiguration, WebPushStore webPushStore) {
         this.apnsService = apnsService;
@@ -26,6 +30,7 @@ public class ApnsPushManager {
         }
         String payload = String.format("{\"aps\":{\"alert\":{\"title\":\"%s\",\"body\":\"%s\",\"action\":\"View\"},\"url-args\":[]}}", title, body);
         apnsService.push(deviceToken, payload);
+        log.info("Sent simple push for " + deviceToken + ", msg: " + body);
         return true;
     }
 }
