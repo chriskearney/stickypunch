@@ -42,7 +42,7 @@ public class ApnsFeedbackService extends AbstractScheduledService {
             if (userOptional.isPresent()) {
                 userOptional.get().setActive(false);
                 userOptional.get().setActiveTimestamp(System.currentTimeMillis());
-                log.info("APNS FEEDBACK: Marking a user inActive.");
+                log.info("APNS FEEDBACK: Marking a user inActive. " + deviceToken);
                 webPushStore.updateWebPushUser(userOptional.get());
             }
         }

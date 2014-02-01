@@ -78,7 +78,6 @@ public class Resource {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
-
     @POST
     @Path("/pushPackages/{websitePushId}")
     @Produces("application/zip")
