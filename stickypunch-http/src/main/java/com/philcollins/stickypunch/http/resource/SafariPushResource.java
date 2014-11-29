@@ -7,7 +7,6 @@ import com.philcollins.stickypunch.api.model.WebPushStore;
 import com.philcollins.stickypunch.api.model.WebPushStoreAuth;
 import com.philcollins.stickypunch.api.model.WebPushUser;
 import com.philcollins.stickypunch.api.model.WebPushUserBuilder;
-import com.philcollins.stickypunch.apnspush.ApnsPushManager;
 import com.philcollins.stickypunch.http.inject.ManifestInjectionContext;
 import com.philcollins.stickypunch.http.model.jackson.WebPushLog;
 import com.sun.jersey.api.core.HttpContext;
@@ -18,7 +17,6 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -34,50 +32,24 @@ import java.util.List;
 
 @Path("/push/v1/")
 @Singleton
-public class Resource {
+public class SafariPushResource {
 
-    private static final Logger log = LogManager.getLogger(Resource.class);
+    private static final Logger log = LogManager.getLogger(SafariPushResource.class);
     private final ObjectMapper mapper;
     private final WebPushStore webPushStore;
     private final WebPushStoreAuth webPushStoreAuth;
     private final PackageCreator packageCreator;
-    private final ApnsPushManager apnsPushManager;
 
-    public Resource(@ManifestInjectionContext ObjectMapper objectMapper,
-                    @ManifestInjectionContext WebPushStore webPushStore,
-                    @ManifestInjectionContext WebPushStoreAuth webPushStoreAuth,
-                    @ManifestInjectionContext PackageCreator packageCreator,
-                    @ManifestInjectionContext ApnsPushManager apnsPushManager) {
+    public SafariPushResource(@ManifestInjectionContext ObjectMapper objectMapper,
+                              @ManifestInjectionContext WebPushStore webPushStore,
+                              @ManifestInjectionContext WebPushStoreAuth webPushStoreAuth,
+                              @ManifestInjectionContext PackageCreator packageCreator) {
         this.mapper = objectMapper;
         this.webPushStore = webPushStore;
         this.webPushStoreAuth = webPushStoreAuth;
         this.packageCreator = packageCreator;
-        this.apnsPushManager = apnsPushManager;
     }
 
-    @GET
-    @Path("/devices")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllActiveDevices(@Context HttpContext context) throws Exception {
-        Optional<List<WebPushUser>> webPushUsers = webPushStore.getWebPushUsers();
-        if (!webPushUsers.isPresent()) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-        String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(webPushUsers.get());
-        return Response.ok(json).build();
-    }
-    @GET
-    @Path("/send/{deviceToken}/{msg}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response sendSimplePush(@Context HttpHeaders headers,
-                                   @PathParam("deviceToken") String deviceToken,
-                                   @PathParam("msg") String msg) throws Exception {
-        if (apnsPushManager.sendPush(deviceToken, "Sticky Punch Push!", msg)) {
-            return Response.ok().build();
-        } else {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-        }
-    }
     @POST
     @Path("/pushPackages/{websitePushId}")
     @Produces("application/zip")
