@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.philcollins</groupId>
+    <groupId>com.comandante</groupId>
     <artifactId>stickypunch</artifactId>
     <version>0.1.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.philcollins.stickypunch</groupId>
+  <groupId>com.comandante.stickypunch</groupId>
   <artifactId>stickypunch-storage</artifactId>
   <dependencies>
     <dependency>
@@ -26,7 +26,7 @@
       <artifactId>sqlite-jdbc</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.philcollins.stickypunch</groupId>
+      <groupId>com.comandante.stickypunch</groupId>
       <artifactId>stickypunch-common</artifactId>
       <version>0.1.0-SNAPSHOT</version>
     </dependency>
